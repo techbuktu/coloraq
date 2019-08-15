@@ -1,1 +1,42 @@
-<p>home works!</p>
+<div class="">
+    <table>
+        <th>
+            <button>
+                First Name
+            </button>
+        </th>
+        <th>
+            <button>
+                Last Name
+            </button>
+        </th>
+        <th>
+            <button>
+                Age
+            </button>
+        </th>
+        <th>
+            <button>
+                Preferred Color
+            </button>
+        </th>
+        <tr *ngFor="let entry of entries">
+        <td>
+            {{ entry.first_name }}
+        </td>
+        <td>
+            {{ entry.last_name }}
+        </td>
+        <td>
+            {{ entry.age }}
+        </td>
+        <td style="color:{{ entry.color }}">
+            {{ entry.color }}
+        </td>
+        </tr>
+
+    </table>
+
+
+
+</div>

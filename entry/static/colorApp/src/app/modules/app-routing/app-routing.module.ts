@@ -14,7 +14,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: '/new',
+    path: 'new',
     component: NewEntryComponent
   }
 
