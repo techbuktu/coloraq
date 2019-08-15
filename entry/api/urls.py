@@ -6,4 +6,5 @@ from entry.api import views
 urlpatterns = format_suffix_patterns([
     path('entries/', views.EntryListView.as_view(), name="entry_list"),
     path('entries/<slug:link>/', views.EntryDetailView.as_view(), name="entry_detail"),
+    path('', views.api_root, name="api_root")
 ])
