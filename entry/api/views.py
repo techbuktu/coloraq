@@ -12,3 +12,14 @@ class EntryListView(generics.ListCreateAPIView):
     queryset = Entry.objects.all()
     serializer_class = EntrySerializer
     lookup_field = "link"
+
+
+class EntryDetailView(generics.RetrieveAPIView):
+    """
+    GETs and returns a single entry.Entry object in serialized form.
+    """
+    queryset = Entry.objects.all()
+    serializer_class = EntrySerializer
+    lookup_field = "link"
+
+
