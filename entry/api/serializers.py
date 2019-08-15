@@ -8,6 +8,6 @@ class EntrySerializer(serializers.HyperlinkedModelSerializer):
     
     class Meta:
         model = Entry
-        fields = ('first_name', 'last_name','age','color')
+        fields = ('first_name', 'last_name','age','color','link')
 
 

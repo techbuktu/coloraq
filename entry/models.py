@@ -13,11 +13,11 @@ class Entry(models.Model):
         verbose_name_plural = "Entries"
 
     def __str__(self):
-        return "%s %s: %s" % (slef.first_name, self.last_name, self.color)
+        return "%s %s: %s" % (self.first_name, self.last_name, self.color)
 
     def save(self, *args, **kwargs):
         if not self.link:
-            self.link = slugify(self.first_name + str(self.id))
+            self.link = slugify(self.first_name + str(self.last_name))
         super(Entry, self).save(*args, **kwargs)
 
 
