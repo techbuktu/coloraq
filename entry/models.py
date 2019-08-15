@@ -9,6 +9,9 @@ class Entry(models.Model):
     color = models.CharField(max_length=25, verbose_name="Preferred Color")
     link = models.SlugField(max_length=125, blank=True)
 
+    class Meta:
+        verbose_name_plural = "Entries"
+
     def __str__(self):
         return "%s %s: %s" % (slef.first_name, self.last_name, self.color)
 
