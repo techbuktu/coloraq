@@ -7,7 +7,7 @@ class Entry(models.Model):
     last_name = models.CharField(max_length=100)
     age = models.PositiveIntegerField()
     color = models.CharField(max_length=25, verbose_name="Preferred Color")
-    link = models.SLugField(max_length=125, blank=True)
+    link = models.SlugField(max_length=125, blank=True)
 
     def __str__(self):
         return "%s %s: %s" % (slef.first_name, self.last_name, self.color)
