@@ -124,6 +124,18 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 
+#Default permissions and parser for the DRF-serialized API data 
+REST_FRAMEWORK = {
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+   'rest_framework.permissions.AllowAny',
+   )
+
+}
+
+
 #Settings for django-cors-headers 
 CORS_ORIGIN_ALLOW_ALL = True 
 CORS_ALLOW_METHODS = (
