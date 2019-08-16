@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './modules/app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpInterceptorsModule } from './modules/http-interceptors/http-interceptors.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { NewEntryComponent } from './components/new-entry/new-entry.component';
@@ -16,7 +17,8 @@ import { NewEntryComponent } from './components/new-entry/new-entry.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpInterceptorsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
