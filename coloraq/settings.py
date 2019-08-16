@@ -139,13 +139,14 @@ REST_FRAMEWORK = {
 
 #Settings for django-cors-headers 
 CORS_ORIGIN_ALLOW_ALL = True 
+
 CORS_ALLOW_METHODS = (
-    'DELETE',
+    #'DELETE',
     'GET',
     'OPTIONS',
-    'PATCH',
+    #'PATCH',
     'POST',
-    'PUT',
+    #'PUT',
 )
 
 CORS_ALLOW_HEADERS = (

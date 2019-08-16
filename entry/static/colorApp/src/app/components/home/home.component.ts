@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
         console.log("Entries: ", this.entries);
       },
       err => {
+        console.log(err);
         this.api_error_message = `Sorry, something went wrong. 
           <p>
           Please, reload the page and try again.
