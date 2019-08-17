@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EntryService } from '../../services/entry.service';
+
 
 @Component({
   selector: 'app-home',
@@ -11,9 +13,9 @@ export class HomeComponent implements OnInit {
   entries: any;
   api_error_message: string;
 
-  constructor(private entryApi: EntryService) {
+  constructor(private entryApi: EntryService, private router: Router) {
 
-   }
+  }
 
   ngOnInit() {
     this.getEntries();
@@ -38,6 +40,10 @@ export class HomeComponent implements OnInit {
       () => {
       }
     )
+  }
+
+  openForm():void {
+    this.router.navigate(['/new']);
   }
 
 }
