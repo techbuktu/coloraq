@@ -12,9 +12,7 @@ import { AccessControlAllowOriginHeaderInterceptor } from './allow-origin-header
   ],
   exports: [],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS, useClass: HttpCORSHeaderInterceptor, multi:true
-    },
+    //{provide: HTTP_INTERCEPTORS, useClass: HttpCORSHeaderInterceptor, multi:true},
     {
       provide: HTTP_INTERCEPTORS, useClass: AccessControlAllowOriginHeaderInterceptor, multi:true
     },

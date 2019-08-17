@@ -6,7 +6,7 @@ import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse } fr
 export class HttpCORSHeaderInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>{
         const requestClone = req.clone({
-            headers: req.headers.set('Access-Control-Allow-Origin', '*')
+            headers: req.headers.set('Access-Control-Allow-Origin', 'http://localhost:8000/api/')
         });
         return next.handle(requestClone);
     }
