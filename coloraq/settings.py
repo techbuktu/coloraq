@@ -152,6 +152,7 @@ CORS_ALLOW_METHODS = (
 CORS_ALLOW_HEADERS = (
     'accept',
     'access-control-allow-origin',
+    'access-control-allow-headers',
     'accept-encoding',
     'authorization',
     'content-type',
