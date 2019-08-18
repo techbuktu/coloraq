@@ -12,7 +12,8 @@ export class NewEntryComponent implements OnInit {
 
   entryForm: FormGroup;
   newEntry;
-  valid_form: boolean = false;
+  form_is_submitted: boolean = true;
+  form_is_valid: boolean = false;
 
   constructor(private entryApi: EntryService, private router: Router, private formBuilder: FormBuilder) {
 
@@ -22,6 +23,7 @@ export class NewEntryComponent implements OnInit {
     this.entryForm = this.formBuilder.group({
       first_name: ['', Validators.required],
       last_name: ['', Validators.required],
+      age: ['', Validators.required],
       color: ['', Validators.required]
     })
   };

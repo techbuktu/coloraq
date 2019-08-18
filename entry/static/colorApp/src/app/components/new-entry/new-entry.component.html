@@ -1,0 +1,47 @@
+<form [formGroup]="entryForm" (ngSubmit)="onSubmit()">
+    <h4>
+        Add a New Entry Below
+    </h4>
+    <label>
+        First Name: 
+        <input type="text" formControlName="first_name">
+        <div *ngIf="form_is_submitted && entryForm.controls.first_name.errors" class="form_error">
+            <div *ngIf="entryForm.controls.first_name.errors.required">
+                Your <i>First Name</i> is required.            
+            </div>
+        </div>
+    </label>
+
+    <label>
+        Last Name:
+        <input type="text" formControlName="last_name">
+        <div *ngIf="form_is_submitted && entryForm.controls.last_name.errors" class="form_error">
+            <div *ngIf="entryForm.controls.last_name.errors.required">
+                Last Name is required
+            </div>
+        </div>
+    </label>
+
+    <label>
+        Age: 
+        <input type="number" formControlName="age">
+        <div *ngIf="form_is_submitted && entryForm.controls.age.errors" class="form_error">
+            <div *ngIf="entryForm.controls.age.errors.required">
+                Age is required
+            </div>
+        </div>
+    </label>
+
+    <label>
+            Favorite Color:
+            <input type="text" formControlName="color">
+            <div *ngIf="form_is_submitted && entryForm.controls.color.errors" class="form_error">
+                <div *ngIf="entryForm.controls.color.errors.required">
+                    <i>Favorite Color</i> is required
+                </div>
+            </div>
+        </label>
+    
+    <input type="submit" value="Submit Entry" [disabled]="!entryForm.valid">
+
+</form>
