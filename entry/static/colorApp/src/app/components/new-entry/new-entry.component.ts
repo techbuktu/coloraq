@@ -14,6 +14,9 @@ export class NewEntryComponent implements OnInit {
   newEntry;
   form_is_submitted: boolean = true;
   form_is_valid: boolean = false;
+  api_error_msg: string;
+  jsonEntryObj;
+
 
   constructor(private entryApi: EntryService, private router: Router, private formBuilder: FormBuilder) {
 
@@ -29,12 +32,41 @@ export class NewEntryComponent implements OnInit {
   };
 
   validateForm(){
+    console.log("validateForm() called...");
+    this.form_is_submitted = true;
 
-    this.postNewEntry()
+    if (this.entryForm.invalid){
+      return;
+    }
+    this.newEntry = {
+      first_name: this.entryForm.controls.first_name.value,
+      last_name: this.entryForm.controls.last_name.value,
+      age: this.entryForm.controls.age.value,
+      color: this.entryForm.controls.color.value
+    }
+
+    this.form_is_valid = true;
+
+    console.log(`New Entry: ${JSON.stringify(this.newEntry)}`);
+    this.jsonEntryObj = JSON.stringify(this.newEntry)
+    this.postNewEntry(this.jsonEntryObj);
   }
 
-  postNewEntry(){
+  postNewEntry(entryObj){
     //this.router.navigate(['']);
+    console.log("postNewEntry() called...");
+    this.entryApi.addEntry(entryObj)
+    .subscribe(
+      res => {
+        this.router.navigate(['']);
+      },
+      err => {
+        this.api_error_msg = err;
+      },
+      () => {
+
+      }
+    )
   }
 
 }
