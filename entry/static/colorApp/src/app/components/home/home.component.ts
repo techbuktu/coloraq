@@ -12,13 +12,15 @@ export class HomeComponent implements OnInit {
 
   entries: any;
   api_error_message: string;
-
+  colors:string[] = [];
+  color_map: Object[] = [];
   constructor(private entryApi: EntryService, private router: Router) {
-
+    
   }
 
   ngOnInit() {
     this.getEntries();
+
   }
 
   getEntries(){
@@ -38,8 +40,24 @@ export class HomeComponent implements OnInit {
           
       },
       () => {
+        this.getColors();
       }
     )
+  }
+
+  getColors(){
+    this.colors = this.entries.map(entry => entry.color);
+    console.log("Array of colors:" + this.colors);
+    this.createColorMap();
+  }
+
+  createColorMap(){
+    
+    this.createAgeGroupColor();
+  }
+
+  createAgeGroupColor(){
+
   }
 
   openForm():void {

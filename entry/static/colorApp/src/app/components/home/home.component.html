@@ -43,4 +43,24 @@
     </button>
 </p>
 
+<h4>
+    Favorite Color By Age Group
+</h4>
+<table *ngIf="color_map.length >= 1">
+    <th>
+        Age Group
+    </th>
+    <th>
+        Favorite Color
+    </th>
+    <tr *ngFor="let color of color_map">
+        <td>
+            {{ color.ageGroup }}
+        </td>
+        <td style="color: {{ color.fave_color }}">
+            {{ color.fave_color }}
+        </td>
+    </tr>
+</table>
+
 </div>
