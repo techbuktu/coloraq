@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   entries: any;
   api_error_message: string;
   colors:string[] = [];
-  color_map: Object[] = [];
+  color_map: any[] = [];
   constructor(private entryApi: EntryService, private router: Router) {
     
   }
@@ -52,7 +52,10 @@ export class HomeComponent implements OnInit {
   }
 
   createColorMap(){
-    
+    this.color_map = this.colors.map(color => {
+      return { color: color, ageGroups: []};
+   
+    })
     this.createAgeGroupColor();
   }
 
