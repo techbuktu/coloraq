@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit {
       let ageColorMap = { };
       ageColorMap["color"] = color;
       ageColorMap["ageGroups"] = [];
-      ageColorMap["fanGroup"] = 0;
+      ageColorMap["favGroup"] = 0;
       console.log(ageColorMap);
 
       // Populate the list of ageGroups that like a certian color
@@ -83,12 +83,39 @@ export class HomeComponent implements OnInit {
       //this.entries.map(entry => entry.color === color)
       ageColorMap["ageGroups"] = ageGroups;
 
+      // Get most popular color within each ageGroup
+      this.getFanAgeGroup(ageColorMap);
+
       this.color_map.push(ageColorMap);
     }
     
-    console.log("this.color_map array: " + this.color_map);
+    console.log("FINAL this.color_map array: " + this.color_map);
     console.log(this.color_map.length);
     //this.createAgeGroupColor();
+  }
+
+  getFanAgeGroup(ageColorMap){
+    let ageGroups = ageColorMap.ageGroups;
+    let counts = { };
+    let compare = 0
+    let favGroup;
+
+    for(let group of ageGroups){
+      if(counts[group] === undefined){
+        counts[group] =1;
+      }
+      else {
+        counts[group] += 1;
+      }
+      
+      if(counts[group] > compare){
+        compare = counts[group];
+        favGroup = group;
+        ageColorMap.favGroup = favGroup;
+        console.log("This Group: ageGroups=" + ageColorMap.ageGroups + "and faveGroup is:" + ageColorMap.favGroup);
+      }
+
+    }
   }
 
   createAgeGroupColor(color_name){
